@@ -22,7 +22,7 @@ function ProfileSidebar(propriedades) {
 }
 function RelationsBox(props){
   return (
-            <> 
+            <ProfileRelationsBoxWrapper>
               <h2 className="smallTitle">
                {props.title}
               </h2>
@@ -34,13 +34,13 @@ function RelationsBox(props){
                       <li key={itemAtual.id}>
                         <a href={`/users/${itemAtual.name}`} >
                           <img src={itemAtual.image} />
-                          <span>{itemAtual.title}</span>
+                          <span>{itemAtual.name}</span>
                         </a>
                      </li>
                   )
                 })}
               </ul>
-            </>
+            </ProfileRelationsBoxWrapper>
           )
 }
 
@@ -118,12 +118,9 @@ return (
           </Box>
         </div>
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
-          <ProfileRelationsBoxWrapper>
             <RelationsBox arrayFavoritos={pessoas} title= {`Pessoas da comunidade ( ${pessoas.length} )`}/>
-          </ProfileRelationsBoxWrapper>
-          <ProfileRelationsBoxWrapper>
             <RelationsBox arrayFavoritos={comunidades} title= {`Comunidades ( ${comunidades.length} )`}/>
-          </ProfileRelationsBoxWrapper>
+          
         </div>
       </MainGrid>
     </>
